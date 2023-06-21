@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package int;
+
+service IntegrationService {
+    rpc Registro (RegisterRequest) returns (RegisterResponse) {}
+    rpc Consulta (QueryRequest) returns (QueryResponse) {}
+    rpc Termino (EmptyRequest) returns (EndResponse) {}
+}
+
+message RegisterRequest {
+    string name = 1;
+    int32 port = 2;
+    repeated string keys = 3;
+}
+
+message RegisterResponse {
+    int32 num = 1;
+}
+
+message QueryRequest {
+    int32 chave = 1;
+}
+
+message QueryResponse {
+    string nome = 1;
+    float porto = 2;
+}
+
+message EmptyRequest {}
+
+message EndResponse {
+    int32 num = 1;
+}

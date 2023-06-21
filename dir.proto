@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package dir;
+
+service DirectoryService {
+    rpc Inserir (InsertRequest) returns (InsertResponse) {}
+    rpc Consulta (QueryRequest) returns (QueryResponse) {}
+    rpc Registro (RegisterRequest) returns (RegisterResponse) {}
+    rpc Termino (EmptyRequest) returns (EndResponse) {}
+}
+
+message InsertRequest {
+    int32 chave = 1;
+    string desc = 2;
+    float valor = 3;
+}
+
+message InsertResponse {
+    int32 status = 1;
+}
+
+message QueryRequest {
+    int32 chave = 1;
+}
+
+message QueryResponse {
+    string desc = 1;
+    float valor = 2;
+}
+
+message RegisterRequest {
+    string nome = 1;
+    int32 porto = 2;
+}
+
+message RegisterResponse {
+    int32 num = 1;
+}
+
+message EmptyRequest {}
+
+message EndResponse {
+    int32 num = 1;
+}
