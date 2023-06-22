@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tdir.proto\x12\x03\x64ir\";\n\rInsertRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\x12\r\n\x05valor\x18\x03 \x01(\x02\" \n\x0eInsertResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\"\x1d\n\x0cQueryRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\",\n\rQueryResponse\x12\x0c\n\x04\x64\x65sc\x18\x01 \x01(\t\x12\r\n\x05valor\x18\x02 \x01(\x02\"\x0e\n\x0c\x45mptyRequest\"\x1a\n\x0b\x45ndResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xaf\x01\n\x10\x44irectoryService\x12\x34\n\x07Inserir\x12\x12.dir.InsertRequest\x1a\x13.dir.InsertResponse\"\x00\x12\x33\n\x08\x43onsulta\x12\x11.dir.QueryRequest\x1a\x12.dir.QueryResponse\"\x00\x12\x30\n\x07Termino\x12\x11.dir.EmptyRequest\x1a\x10.dir.EndResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tdir.proto\x12\x03\x64ir\";\n\rInsertRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\x12\x0c\n\x04\x64\x65sc\x18\x02 \x01(\t\x12\r\n\x05valor\x18\x03 \x01(\x02\" \n\x0eInsertResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\"\x1d\n\x0cQueryRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\",\n\rQueryResponse\x12\x0c\n\x04\x64\x65sc\x18\x01 \x01(\t\x12\r\n\x05valor\x18\x02 \x01(\x02\".\n\x0fRegisterRequest\x12\x0c\n\x04nome\x18\x01 \x01(\t\x12\r\n\x05porto\x18\x02 \x01(\x05\"\x1f\n\x10RegisterResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\"\x0e\n\x0c\x45mptyRequest\"\x1a\n\x0b\x45ndResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xea\x01\n\x10\x44irectoryService\x12\x34\n\x07Inserir\x12\x12.dir.InsertRequest\x1a\x13.dir.InsertResponse\"\x00\x12\x33\n\x08\x43onsulta\x12\x11.dir.QueryRequest\x1a\x12.dir.QueryResponse\"\x00\x12\x39\n\x08Registro\x12\x14.dir.RegisterRequest\x1a\x15.dir.RegisterResponse\"\x00\x12\x30\n\x07Termino\x12\x11.dir.EmptyRequest\x1a\x10.dir.EndResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'dir_pb2', globals())
@@ -28,10 +28,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _QUERYREQUEST._serialized_end=142
   _QUERYRESPONSE._serialized_start=144
   _QUERYRESPONSE._serialized_end=188
-  _EMPTYREQUEST._serialized_start=190
-  _EMPTYREQUEST._serialized_end=204
-  _ENDRESPONSE._serialized_start=206
-  _ENDRESPONSE._serialized_end=232
-  _DIRECTORYSERVICE._serialized_start=235
-  _DIRECTORYSERVICE._serialized_end=410
+  _REGISTERREQUEST._serialized_start=190
+  _REGISTERREQUEST._serialized_end=236
+  _REGISTERRESPONSE._serialized_start=238
+  _REGISTERRESPONSE._serialized_end=269
+  _EMPTYREQUEST._serialized_start=271
+  _EMPTYREQUEST._serialized_end=285
+  _ENDRESPONSE._serialized_start=287
+  _ENDRESPONSE._serialized_end=313
+  _DIRECTORYSERVICE._serialized_start=316
+  _DIRECTORYSERVICE._serialized_end=550
 # @@protoc_insertion_point(module_scope)

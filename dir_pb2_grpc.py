@@ -24,6 +24,11 @@ class DirectoryServiceStub(object):
                 request_serializer=dir__pb2.QueryRequest.SerializeToString,
                 response_deserializer=dir__pb2.QueryResponse.FromString,
                 )
+        self.Registro = channel.unary_unary(
+                '/dir.DirectoryService/Registro',
+                request_serializer=dir__pb2.RegisterRequest.SerializeToString,
+                response_deserializer=dir__pb2.RegisterResponse.FromString,
+                )
         self.Termino = channel.unary_unary(
                 '/dir.DirectoryService/Termino',
                 request_serializer=dir__pb2.EmptyRequest.SerializeToString,
@@ -41,6 +46,12 @@ class DirectoryServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def Consulta(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Registro(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -64,6 +75,11 @@ def add_DirectoryServiceServicer_to_server(servicer, server):
                     servicer.Consulta,
                     request_deserializer=dir__pb2.QueryRequest.FromString,
                     response_serializer=dir__pb2.QueryResponse.SerializeToString,
+            ),
+            'Registro': grpc.unary_unary_rpc_method_handler(
+                    servicer.Registro,
+                    request_deserializer=dir__pb2.RegisterRequest.FromString,
+                    response_serializer=dir__pb2.RegisterResponse.SerializeToString,
             ),
             'Termino': grpc.unary_unary_rpc_method_handler(
                     servicer.Termino,
@@ -111,6 +127,23 @@ class DirectoryService(object):
         return grpc.experimental.unary_unary(request, target, '/dir.DirectoryService/Consulta',
             dir__pb2.QueryRequest.SerializeToString,
             dir__pb2.QueryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Registro(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/dir.DirectoryService/Registro',
+            dir__pb2.RegisterRequest.SerializeToString,
+            dir__pb2.RegisterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

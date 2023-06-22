@@ -1,18 +1,20 @@
 import sys
+import threading
 import grpc
 import int_pb2, int_pb2_grpc
 from concurrent import futures
 
 class IntegrationServer(int_pb2_grpc.IntegrationServiceServicer):
     
-    def __init__(self):
-        self.data = {}
+    def __init__(self, stop_event):
+        self.data = {} # dados indexados pelas chaves
+        self._stop_event = stop_event
     
     def Registro(self, request, context):
         try:
-            name = request.name
-            port = request.port
-            keys = request.keys
+            name = request.nome
+            port = request.porto
+            keys = request.chaves
 
             for key in keys:
                 if key in self.data:
@@ -28,6 +30,7 @@ class IntegrationServer(int_pb2_grpc.IntegrationServiceServicer):
         key = request.chave
 
         if key in self.data:
+            # o primeiro diretório que contém a chave é retornado
             name = self.data[key][0]['name']
             port = self.data[key][0]['port']
 
@@ -36,15 +39,17 @@ class IntegrationServer(int_pb2_grpc.IntegrationServiceServicer):
             return int_pb2.QueryResponse(nome='ND', porto=0)    
 
     def Termino(self, request, context):
+        self._stop_event.set()
         return int_pb2.EndResponse(num=len(self.data))
     
 def serve(port):
+    stop_event = threading.Event()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    int_pb2_grpc.add_IntegrationServiceServicer_to_server(IntegrationServer(), server)
+    int_pb2_grpc.add_IntegrationServiceServicer_to_server(IntegrationServer(stop_event), server)
     server.add_insecure_port(f'[::]:{port}')
     server.start()
-    print('Server started!')
-    server.wait_for_termination()
+    stop_event.wait()
+    server.stop(2)
 
 if __name__ == '__main__':
     serve(sys.argv[1])

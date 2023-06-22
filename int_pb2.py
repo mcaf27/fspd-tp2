@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tint.proto\x12\x03int\"-\n\x0fRegisterRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\"\x1f\n\x10RegisterResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\"\x1d\n\x0cQueryRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\",\n\rQueryResponse\x12\x0c\n\x04nome\x18\x01 \x01(\t\x12\r\n\x05porto\x18\x02 \x01(\x02\"\x0e\n\x0c\x45mptyRequest\"\x1a\n\x0b\x45ndResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xb6\x01\n\x12IntegrationService\x12\x39\n\x08Registro\x12\x14.int.RegisterRequest\x1a\x15.int.RegisterResponse\"\x00\x12\x33\n\x08\x43onsulta\x12\x11.int.QueryRequest\x1a\x12.int.QueryResponse\"\x00\x12\x30\n\x07Termino\x12\x11.int.EmptyRequest\x1a\x10.int.EndResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tint.proto\x12\x03int\">\n\x0fRegisterRequest\x12\x0c\n\x04nome\x18\x01 \x01(\t\x12\r\n\x05porto\x18\x02 \x01(\x05\x12\x0e\n\x06\x63haves\x18\x03 \x03(\x05\"\x1f\n\x10RegisterResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\"\x1d\n\x0cQueryRequest\x12\r\n\x05\x63have\x18\x01 \x01(\x05\",\n\rQueryResponse\x12\x0c\n\x04nome\x18\x01 \x01(\t\x12\r\n\x05porto\x18\x02 \x01(\x05\"\x0e\n\x0c\x45mptyRequest\"\x1a\n\x0b\x45ndResponse\x12\x0b\n\x03num\x18\x01 \x01(\x05\x32\xb6\x01\n\x12IntegrationService\x12\x39\n\x08Registro\x12\x14.int.RegisterRequest\x1a\x15.int.RegisterResponse\"\x00\x12\x33\n\x08\x43onsulta\x12\x11.int.QueryRequest\x1a\x12.int.QueryResponse\"\x00\x12\x30\n\x07Termino\x12\x11.int.EmptyRequest\x1a\x10.int.EndResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'int_pb2', globals())
@@ -21,17 +21,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _REGISTERREQUEST._serialized_start=18
-  _REGISTERREQUEST._serialized_end=63
-  _REGISTERRESPONSE._serialized_start=65
-  _REGISTERRESPONSE._serialized_end=96
-  _QUERYREQUEST._serialized_start=98
-  _QUERYREQUEST._serialized_end=127
-  _QUERYRESPONSE._serialized_start=129
-  _QUERYRESPONSE._serialized_end=173
-  _EMPTYREQUEST._serialized_start=175
-  _EMPTYREQUEST._serialized_end=189
-  _ENDRESPONSE._serialized_start=191
-  _ENDRESPONSE._serialized_end=217
-  _INTEGRATIONSERVICE._serialized_start=220
-  _INTEGRATIONSERVICE._serialized_end=402
+  _REGISTERREQUEST._serialized_end=80
+  _REGISTERRESPONSE._serialized_start=82
+  _REGISTERRESPONSE._serialized_end=113
+  _QUERYREQUEST._serialized_start=115
+  _QUERYREQUEST._serialized_end=144
+  _QUERYRESPONSE._serialized_start=146
+  _QUERYRESPONSE._serialized_end=190
+  _EMPTYREQUEST._serialized_start=192
+  _EMPTYREQUEST._serialized_end=206
+  _ENDRESPONSE._serialized_start=208
+  _ENDRESPONSE._serialized_end=234
+  _INTEGRATIONSERVICE._serialized_start=237
+  _INTEGRATIONSERVICE._serialized_end=419
 # @@protoc_insertion_point(module_scope)
